@@ -1,0 +1,148 @@
+"""
+Módulo de armazenamento de todas as variáveis de caminhos para texturas,
+cores e dimensões referentes ao veículo e às restantes partes complementares, 
+como a garagem e objetos do exterior.
+Desenvolvido por:
+    - Diogo Vasconcelos, fc61809
+    - Miguel Guise, fc61822
+    - Simão da Luz, fc61816
+Em: 01/12/2026
+"""
+
+import math
+
+# --- PATHS ---
+GENERAL_FLOOR_TEX_PATH  = "textures/tex_general_floor.jpg"
+CAR_OUTSIDE_TEX_PATH    = "textures/tex_car.jpg"
+GARAGE_GATE_TEX_PATH    = "textures/tex_garage_gate.jpg"
+GARAGE_OUTSIDE_TEX_PATH = "textures/tex_garage_outside.jpg"
+RADIATOR_TEX_PATH       = "textures/tex_radiator.jpg"
+
+# --- COLORS ---
+CAR_OUTSIDE_COLOR         = (0.255, 0.50, 0.369)
+CAR_INSIDE_COLOR          = (0.2, 0.1, 0.0)
+CAR_CABIN_FLOOR_COLOR     = (0.1, 0.05, 0.0)
+CAR_UNDERNEATH_COLOR      = (0.3, 0.28, 0.26)
+DOOR_HANDLE_COLOR         = (0.7, 0.7, 0.7)
+
+PIPE_COLOR                = (0.2, 0.2, 0.2)
+PROTECTIONS_COLOR         = (0.070, 0.094, 0.043)
+ 
+HOOD_FRONT_COLOR          = (0.255, 0.46, 0.369)
+RADIATOR_COLOR            = (0.355, 0.46, 0.369)
+
+REAR_BUMPER_COLOR         = (0.070, 0.094, 0.043)
+
+GARAGE_OUTSIDE_COLOR      = (0.90, 0.90, 0.90)
+GARAGE_INSIDE_WALLS_COLOR = (0.5, 0.8, 0.65)
+GARAGE_FLOOR_COLOR        = (0.4, 0.4, 0.4)
+
+STREET_LIGHT_COLOR        = (0.30, 0.30, 0.30)
+
+
+# --- CABIN ---
+CAR_ANGLE = 2.5
+
+CABIN_FLOOR_WIDTH = 4
+CAR_FLOOR_HEIGHT  = 0.2
+CAR_FLOOR_DEPTH   = 3.5
+
+
+
+# --- PROTECTION WALLS + DOOR ---
+PROT_HEIGHT = 0.1
+PROT_OFFSET = 0.3 # O quanto vem para a frente da porta e walls
+
+DOOR_WIDTH = CABIN_FLOOR_WIDTH * 0.7
+DOOR_TOP_FRONT_HEIGHT = 1.5
+DOOR_TOP_REAR_HEIGHT = 2
+
+DOOR_HANDLE_THICKNESS = 0.1          
+DOOR_THICKNESS = 0.3
+DOOR_R = 1.0
+
+# Achar ângulo da porta:
+phi_rad = math.atan((DOOR_TOP_REAR_HEIGHT - DOOR_TOP_FRONT_HEIGHT) / DOOR_WIDTH)
+DOOR_ANGLE = math.degrees(phi_rad)
+DOOR_TOP_WIDTH = DOOR_WIDTH / math.cos(phi_rad)
+
+
+
+# --- TRUNK + REAR BUMPER ---
+R_TRUNK = DOOR_TOP_REAR_HEIGHT - DOOR_TOP_FRONT_HEIGHT
+TRUNK_FLOOR_WIDTH = 1.2
+REAR_BUMPER_WIDTH = R_TRUNK * 1.5 # Maior o coeficiente, maior o bumper atrás!
+
+
+
+# --- WALLS ---
+WALL_THICKNESS = DOOR_THICKNESS
+FRONT_SIDE_WALL_WIDTH = CABIN_FLOOR_WIDTH * 0.2
+BACK_SIDE_WALL_WIDTH = CABIN_FLOOR_WIDTH * 0.1
+
+
+
+# --- HOOD ---
+# - HOOD MAIN -
+HOOD_MAIN_WALL_UNITS = 4.0
+HOOD_MAIN_WIDTH = CAR_FLOOR_DEPTH - HOOD_MAIN_WALL_UNITS * WALL_THICKNESS
+HOOD_MAIN_HEIGHT = 0.4
+HOOD_MAIN_DEPTH = 1.5
+
+# - HOOD SIDE -
+HOOD_SIDE_HEIGHT = 0.3
+HOOD_SIDE_WIDTH = HOOD_MAIN_WALL_UNITS * 0.5 * WALL_THICKNESS
+HOOD_LAT_HEIGHT = DOOR_TOP_FRONT_HEIGHT - HOOD_MAIN_HEIGHT - HOOD_SIDE_HEIGHT
+
+# - HOOD FLOOR -
+HOOD_FLOOR_WIDTH = HOOD_MAIN_DEPTH + HOOD_SIDE_WIDTH
+
+
+
+# --- CABIN MATERIALS ---
+# - TABLE -
+TABLE_WIDTH = 0.7
+TABLE_HEIGHT = 0.8
+
+# - CAIXA DE MUDANÇAS + TRAVÃO DE MÃO -
+BRAKE_BOX_WIDTH = 1.4
+BRAKE_BOX_HEIGHT = 0.3
+BRAKE_BOX_DEPTH = 0.5
+
+
+
+# --- PIPES ---
+PIPE_WIDTH = 0.1
+
+
+
+# --- WINDSHIELD ---
+WINDSHIELD_WIDTH = CAR_FLOOR_DEPTH - 2 * WALL_THICKNESS + PIPE_WIDTH * 4
+WINDSHIELD_HEIGHT = 2
+WINDSHIELD_DEPTH = 0.1
+WINDSHIELD_ANGLE = 40
+WINDSHIELD_ANGLE_RAD = math.radians(WINDSHIELD_ANGLE)
+
+
+
+# --- WHEELS ---
+FRONT_WHEEL_R = 1.9
+FRONT_WHEEL_DEPTH = 0.826
+
+REAR_WHEEL_R = 2.3
+REAR_WHEEL_DEPTH = 1.0
+
+
+CAR_WIDTH = HOOD_FLOOR_WIDTH + CABIN_FLOOR_WIDTH + TRUNK_FLOOR_WIDTH
+CAR_ELEVATION = CAR_WIDTH * math.sin(math.radians(CAR_ANGLE)) + FRONT_WHEEL_R * 0.3
+
+
+
+# --- OUTSIDE ---
+GARAGE_WIDTH = 10.0
+GARAGE_HEIGHT = 6.5
+GARAGE_DEPTH = 13.0
+GARAGE_WALL_THICKNESS = 0.5
+GARAGE_FRONT_WALL_THICKNESS = GARAGE_WALL_THICKNESS * 1.5
+
+STREET_LIGHT_HEIGHT = 11

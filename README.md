@@ -146,4 +146,5 @@ This will launch the interactive 3D scene, allowing you to control the car and i
 ## Authors
 
 **Group 17**
+- Miguel Guise - fc61822
 - Simão da Luz - fc61816

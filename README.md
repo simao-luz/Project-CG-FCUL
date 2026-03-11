@@ -148,3 +148,4 @@ This will launch the interactive 3D scene, allowing you to control the car and i
 **Group 17**
 - Miguel Guise - fc61822
 - Simão da Luz - fc61816
+- Diogo Vasconcelos - fc61809
